@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola Mundo!</title>
+</head>
+<body>
+    <div id="hola">
+        {{mensaje}}
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        const helloVue = {
+            data(){
+                return{
+                    mensaje: 'Hola mundo Vue'
+                }
+            }
+        }
+
+        Vue.createApp(helloVue).mount('#hola')
+    </script>
+</body>
+</html>

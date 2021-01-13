@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Componentes</title>
+</head>
+
+<body>
+    <div id="ejemplo1">
+        <perro></perro>
+        <perro></perro>
+        <perro></perro>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        const miapp = Vue.createApp({})
+            miapp.component('perro',{
+                template: '<h2> aquí va un perrito {{anchoalto}} </h2> <img v-bind:src="anchoalto" >' , // la plantilla común a todos los elementos que vamos a crear
+                    data() { // función para obtener un dato distinto en cada elemento
+                        return {
+                            ancho: Math.floor(Math.random() * 400) + 200,
+                            alto: Math.floor(Math.random() * 300) + 200
+                            }
+                        },
+                        computed: { // función a ejecutar cuando se termine de crear el elemento
+                            anchoalto(){
+                                return 'https://placedog.net/' + this.ancho + '/' + this.alto
+                            }
+                        }
+            });
+
+            miapp.mount('#ejemplo1')
+    </script>
+</body>
+
+</html>
